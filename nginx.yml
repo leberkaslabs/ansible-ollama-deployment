@@ -1,0 +1,7 @@
+---
+- name: Setup NGINX (in Docker)
+  hosts: all
+  gather_facts: false
+
+  roles:
+    - nginx

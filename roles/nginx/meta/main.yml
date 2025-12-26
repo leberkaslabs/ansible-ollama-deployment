@@ -1,0 +1,21 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: nginx_docker
+  author: dudecalledbro
+  description: Setup NGINX with Docker Compose.
+  license: License (MIT)
+  min_ansible_version: "2.15"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - container
+    - docker
+    - nginx

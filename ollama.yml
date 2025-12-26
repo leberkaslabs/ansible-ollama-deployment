@@ -1,0 +1,7 @@
+---
+- name: Setup Ollama (in Docker)
+  hosts: all
+  gather_facts: false
+
+  roles:
+    - ollama

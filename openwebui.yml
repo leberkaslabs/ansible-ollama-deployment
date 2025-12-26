@@ -1,0 +1,7 @@
+---
+- name: Setup Open WebUI (in Docker)
+  hosts: all
+  gather_facts: false
+
+  roles:
+    - openwebui

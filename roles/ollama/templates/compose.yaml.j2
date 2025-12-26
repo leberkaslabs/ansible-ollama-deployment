@@ -1,0 +1,17 @@
+{{ ansible_managed | ansible.builtin.comment }}
+---
+services:
+  ollama:
+    image: {{ ollama_docker_image }}
+    container_name: ollama
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "10"
+    ports:
+      - 127.0.0.1:11434:11434
+    volumes:
+      - {{ ollama_docker_path }}/data:/root/.ollama:rw
+      - /etc/localtime:/etc/localtime:ro

@@ -1,0 +1,14 @@
+---
+all:
+  hosts:
+    ollama.local:
+      ansible_become: true
+
+  vars:
+    # Ollama Docker image to use
+    # Set to the latest available version for up-to-date features
+    ollama_docker_image: ollama/ollama:latest
+
+    # Open WebUI Docker image to use
+    # Set to the latest available version for up-to-date features
+    openwebui_docker_image: ghcr.io/open-webui/open-webui:main

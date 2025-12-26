@@ -1,0 +1,19 @@
+{{ ansible_managed | ansible.builtin.comment }}
+---
+services:
+  openwebui:
+    image: {{ openwebui_docker_image }}
+    container_name: open-webui
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: "100m"
+        max-file: "10"
+      driver: json-file
+    ports:
+      - 127.0.0.1:8080:8080
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - {{ openwebui_docker_path }}/data:/app/backend/data:rw
+      - /etc/localtime:/etc/localtime:ro

@@ -1,0 +1,20 @@
+---
+# Open WebUI Docker image to use
+# Set to the latest available version for up-to-date features
+openwebui_docker_image: ghcr.io/open-webui/open-webui:main
+
+# Directory path for Open WebUI deployment
+# Location where Docker Compose files and configs are stored
+openwebui_docker_path: /opt/openwebui
+
+# Owner of Open WebUI Docker files and directories
+# Usually set to the root user for full control
+openwebui_docker_owner: root
+
+# Group associated with Open WebUI Docker files
+# Typically the root group for permissions management
+openwebui_docker_group: root
+
+# Docker Compose Override for Open WebUI Configuration
+# Use this for an empty override if no changes are needed
+openwebui_docker_compose_override: {}

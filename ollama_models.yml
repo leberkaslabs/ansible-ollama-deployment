@@ -1,0 +1,26 @@
+---
+- name: Download Ollama Models
+  hosts: all
+  gather_facts: false
+
+  vars:
+    ollama_docker_models:
+      - deepseek-r1:14b
+      - llama3:8b
+
+  tasks:
+    - name: Fetch available models
+      ansible.builtin.command:
+        cmd: docker exec ollama ollama list
+      changed_when: false
+      register: models_
+
+    - name: Show available models
+      ansible.builtin.debug:
+        msg: "{{ models_.stdout }}"
+
+    - name: Ensure models are pulled (if not already available)
+      ansible.builtin.command:
+        cmd: docker exec ollama ollama pull {{ item }}
+      changed_when: not item in models_.stdout
+      loop: "{{ ollama_docker_models | default([]) }}"

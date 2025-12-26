@@ -1,0 +1,17 @@
+{{ ansible_managed | ansible.builtin.comment }}
+---
+services:
+  nginx:
+    image: {{ nginx_docker_image }}
+    container_name: nginx
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: "100m"
+        max-file: "10"
+      driver: json-file
+    network_mode: host
+    volumes:
+      - {{ nginx_docker_path }}/conf.d:/etc/nginx/conf.d:ro
+      - {{ nginx_docker_path }}/ssl:/etc/nginx/ssl:ro
+      - /etc/localtime:/etc/localtime:ro

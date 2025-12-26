@@ -1,0 +1,7 @@
+---
+- name: Restart Ollama docker compose deployment
+  ansible.builtin.command:
+    cmd: docker compose --ansi never --progress plain restart
+    chdir: "{{ ollama_docker_path }}"
+  changed_when: true
+  listen: restart ollama

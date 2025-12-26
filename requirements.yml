@@ -1,0 +1,5 @@
+---
+roles:
+  - name: nginx
+    src: https://github.com/leberkaslabs/ansible-role-nginx_docker.git
+    version: main

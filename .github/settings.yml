@@ -1,0 +1,5 @@
+---
+# https://github.com/apps/settings
+repository:
+  description: Ansible playbooks for deploying containerized Ollama and Open WebUI.
+  topics: ansible, ollama, container, docker

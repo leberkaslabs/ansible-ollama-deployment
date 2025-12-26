@@ -1,0 +1,26 @@
+---
+# Ollama Docker image to use
+# Set to the latest available version for up-to-date features
+ollama_docker_image: ollama/ollama:latest
+
+# Directory path for Ollama deployment
+# Location where Docker Compose files and configs are stored
+ollama_docker_path: /opt/ollama
+
+# Owner of Ollama Docker files and directories
+# Usually set to the root user for full control
+ollama_docker_owner: root
+
+# Group associated with Ollama Docker files
+# Typically the root group for permissions management
+ollama_docker_group: root
+
+# Docker Compose Override for Ollama Configuration
+# Set `gpus` to `all` to enable GPU support.
+ollama_docker_compose_override:
+  services:
+    ollama:
+      gpus: all
+
+# Use this for an empty override if no changes are needed
+# ollama_docker_compose_override: {}
