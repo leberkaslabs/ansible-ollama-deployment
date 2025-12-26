@@ -10,16 +10,10 @@ services:
         max-size: "100m"
         max-file: "10"
       driver: json-file
-    environment:
-      OLLAMA_BASE_URL: http://ollama:11434
     ports:
       - 127.0.0.1:8080:8080
-    networks:
-      - ollama
+    extra_hosts:
+      - host.docker.internal:host-gateway
     volumes:
       - {{ openwebui_docker_path }}/data:/app/backend/data:rw
       - /etc/localtime:/etc/localtime:ro
-
-networks:
-  ollama:
-    name: internal-ollama-network
